@@ -5,15 +5,21 @@
 
 CC=gcc
 OUTPUT=output
-OBJS=main.o
+OBJS=main.o strPalChk.o
 SOURCE=main.c
 CFLAGS=-o
+
+
 
 $(OUTPUT): $(OBJS)
 	$(CC) $(OBJS) $(CFLAGS) $(OUTPUT)
 
-$(OBJS): $(SOURCE)
+main.o: $(SOURCE)
 	$(CC) -c $(SOURCE)
+
+strPalChk.o: strPalChk.c
+	$(CC) -c strPalChk.c
+
 
 clean:
 	rm -f *.o output
